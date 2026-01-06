@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Calculadora de Cuentas 🍽️</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </head>
 <body>
 
 <div class="container">
-    <h1>Divisor de Cuentas</h1>
+    <h1>Calculadora de Cuentas</h1>
 
     <section>
-        <h2>1. Comensales</h2>
+        <h2><span class="emoji-icon">👥</span> 1. Comensales</h2>
         <div class="input-group">
             <input type="text" id="nombreComensal" placeholder="Nombre (ej: Ana)">
             <button onclick="agregarComensal()">Añadir Persona</button>
@@ -21,7 +22,7 @@
     </section>
 
     <section>
-        <h2>2. Platos y Raciones</h2>
+        <h2><span class="emoji-icon">🍽️</span> 2. Platos y Raciones</h2>
         <div class="input-group">
             <input type="text" id="nombrePlato" placeholder="Ej: Pizza">
             <input type="number" id="precioPlato" placeholder="Precio (€)" step="0.01">
@@ -46,13 +47,17 @@
     </section>
 
     <section>
-        <h2>3. Reparto de Platos</h2>
+        <h2><span class="emoji-icon">💰</span> 3. Reparto y Totales</h2>
         <p style="font-size: 0.9em; color: #888; margin-bottom: 10px;">Selecciona quién ha comido cada cosa:</p>
-        <div id="distribucion" class="distribucion-grid"></div>
+        <div id="distribucion"></div>
         <hr style="border: 0; border-top: 1px solid #444; margin: 20px 0;">
-        <div id="totalesFinales"></div>
+        
+        <div id="areaCaptura">
+            <div id="totalesFinales"></div>
+        </div>
     </section>
     
+    <button onclick="descargarImagenResumen()" style="background:#6c5ce7; margin-bottom: 10px;">📸 Descargar Imagen</button>
     <button onclick="limpiarTodo()" class="btn-danger">Borrar todo y reiniciar</button>
 </div>
 

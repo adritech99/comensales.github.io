@@ -1,30 +1,43 @@
-/* Configuración General con tu estilo Dark */
+/* --- CONFIGURACIÓN BASE (DARK MODE) --- */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 10px;
-    background-color: #272822; /* Fondo oscuro Monokai */
+    background-color: #272822; /* Fondo Monokai */
     color: #ffffff;
 }
 
 .container {
     max-width: 900px;
     margin: auto;
-    background: #272822; /* Corregido: añadido # */
+    background: #272822;
     padding: 15px;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+h1 { 
+    text-align: center; 
+    color: #ffffff; 
+    text-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
 }
 
 section {
     margin-bottom: 30px;
     padding-bottom: 20px;
-    border-bottom: 2px solid #008080; /* Tu verde azulado */
+    border-bottom: 2px solid #008080;
 }
 
-/* Optimización para MÓVIL (Inputs y botones) */
+/* --- ICONOS Y EMOJIS --- */
+.emoji-icon {
+    display: inline-block;
+    filter: drop-shadow(0 0 5px rgba(0, 242, 255, 0.6));
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+/* --- FORMULARIOS E INPUTS --- */
 .input-group {
     display: flex;
-    flex-direction: column; /* Apilados por defecto para pulgar */
+    flex-direction: column;
     gap: 12px;
     margin-bottom: 15px;
 }
@@ -35,33 +48,48 @@ input {
     border: 1px solid #555;
     border-radius: 8px;
     color: white;
-    font-size: 16px; /* Evita zoom molesto en iPhone */
+    font-size: 16px; /* Evita el zoom automático en iOS */
+}
+
+input:focus {
+    border-color: #00f2ff;
+    outline: none;
 }
 
 button {
-    padding: 14px 20px; /* Más grandes para tocar fácil */
-    font-weight: bold;
+    padding: 14px 20px;
     cursor: pointer;
     background: #007bff;
     color: white;
     border: none;
     border-radius: 8px;
-    transition: background 0.3s;
+    font-weight: bold;
+    transition: transform 0.1s, background 0.3s;
 }
 
-/* Tabla Adaptable */
+button:active {
+    transform: scale(0.98);
+}
+
+.btn-danger { 
+    background: #dc3545; 
+    width: 100%; 
+    margin-top: 10px; 
+}
+
+/* --- TABLAS ADAPTABLES --- */
 .table-container {
     width: 100%;
-    overflow-x: auto; /* Scroll lateral si hay muchos datos */
-    margin-top: 15px;
+    overflow-x: auto;
     background: #333;
     border-radius: 8px;
+    margin-top: 10px;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 450px; /* Evita que se amontone el texto */
+    min-width: 450px;
 }
 
 th, td {
@@ -75,50 +103,65 @@ th {
     color: white;
 }
 
-/* Tarjetas de Comensal (Borde pedido) */
-.comensal-card {
-    background: #2f3029; /* Un tono ligeramente distinto al fondo */
-    border: 2px solid #008080; 
+/* --- REPARTO (CHECKBOXES) --- */
+.distribucion-item {
+    margin-bottom: 15px;
+    border: 1px solid #444;
     padding: 15px;
-    margin: 15px 0;
-    border-left: 8px solid #008080; /* Acentuamos el lateral */
+    border-radius: 8px;
+    background: #2f3029;
+}
+
+.distribucion-item label {
+    display: flex;
+    align-items: center;
+    background: #3e3e3e;
+    margin: 8px 0;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #eee;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.4);
+    margin-right: 12px;
+}
+
+/* --- RESUMEN FINAL (TARJETAS) --- */
+#areaCaptura {
+    padding: 5px; /* Espacio para que la foto no salga pegada */
+}
+
+.comensal-card {
+    background: #2f3029;
+    border: 2px solid #008080;
+    padding: 15px;
+    margin: 12px 0;
+    border-left: 8px solid #008080;
     border-radius: 8px;
 }
 
 .total-badge {
     font-weight: bold;
-    color: #a6e22e; /* Verde brillante tipo código para que resalte el dinero */
+    color: #a6e22e; /* Verde Monokai brillante */
     font-size: 1.5em;
     display: block;
-    margin-top: 5px;
 }
 
-/* Responsive para Pantallas Grandes (PC) */
+/* --- RESPONSIVE PC --- */
 @media (min-width: 600px) {
     .input-group {
-        flex-direction: row; /* En PC se ven en línea */
+        flex-direction: row;
     }
-    .container {
-        margin: 30px auto;
-        padding: 30px;
+    .input-group input {
+        flex: 1;
     }
     .total-badge {
-        float: right; /* En PC el precio va a la derecha */
-        margin-top: 0;
+        float: right;
     }
-}
-
-/* Estilo para los Checkboxes en móvil */
-#distribucion label {
-    display: block;
-    background: #3e3e3e;
-    margin: 5px 0;
-    padding: 12px;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-input[type="checkbox"] {
-    transform: scale(1.3); /* Checkbox más grande para el dedo */
-    margin-right: 10px;
+    .container {
+        padding: 30px;
+        margin-top: 20px;
+    }
 }
