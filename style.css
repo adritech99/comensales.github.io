@@ -16,7 +16,7 @@ body {
 
 h1 { 
     text-align: center; 
-    color: #ffffff; 
+    color: #00f2ff; 
     text-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
 }
 
@@ -140,13 +140,28 @@ input[type="checkbox"] {
     margin: 12px 0;
     border-left: 8px solid #008080;
     border-radius: 8px;
+    
+    /* Añadimos estas 3 líneas mágicas */
+    display: flex;
+    flex-direction: column; /* Por defecto para los detalles */
+    position: relative;
+}
+
+.comensal-card strong {
+    display: block;
+    margin-right: 90px; /* Deja espacio para el precio a la derecha */
+    text-transform: capitalize;
 }
 
 .total-badge {
     font-weight: bold;
-    color: #a6e22e; /* Verde Monokai brillante */
+    color: #a6e22e;
     font-size: 1.5em;
-    display: block;
+    
+    /* Forzamos posición a la derecha siempre */
+    position: absolute;
+    right: 15px;
+    top: 15px;
 }
 
 /* --- RESPONSIVE PC --- */
