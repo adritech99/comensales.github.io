@@ -1,8 +1,8 @@
-/* --- CONFIGURACIÓN BASE (DARK MODE) --- */
+/* --- CONFIGURACIÓN BASE --- */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 10px;
-    background-color: #272822; /* Fondo Monokai */
+    background-color: #272822;
     color: #ffffff;
 }
 
@@ -14,11 +14,7 @@ body {
     border-radius: 12px;
 }
 
-h1 { 
-    text-align: center; 
-    color: #00f2ff; 
-    text-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
-}
+h1 { text-align: center; color: #00f2ff; text-shadow: 0 0 10px rgba(0, 242, 255, 0.3); }
 
 section {
     margin-bottom: 30px;
@@ -26,15 +22,13 @@ section {
     border-bottom: 2px solid #008080;
 }
 
-/* --- ICONOS Y EMOJIS --- */
 .emoji-icon {
     display: inline-block;
     filter: drop-shadow(0 0 5px rgba(0, 242, 255, 0.6));
     margin-right: 10px;
-    font-size: 1.2em;
 }
 
-/* --- FORMULARIOS E INPUTS --- */
+/* --- FORMULARIOS --- */
 .input-group {
     display: flex;
     flex-direction: column;
@@ -48,12 +42,7 @@ input {
     border: 1px solid #555;
     border-radius: 8px;
     color: white;
-    font-size: 16px; /* Evita el zoom automático en iOS */
-}
-
-input:focus {
-    border-color: #00f2ff;
-    outline: none;
+    font-size: 16px;
 }
 
 button {
@@ -64,46 +53,17 @@ button {
     border: none;
     border-radius: 8px;
     font-weight: bold;
-    transition: transform 0.1s, background 0.3s;
 }
 
-button:active {
-    transform: scale(0.98);
-}
+.btn-danger { background: #dc3545; width: 100%; margin-top: 10px; }
 
-.btn-danger { 
-    background: #dc3545; 
-    width: 100%; 
-    margin-top: 10px; 
-}
+/* --- TABLAS --- */
+.table-container { width: 100%; overflow-x: auto; background: #333; border-radius: 8px; margin-top: 10px; }
+table { width: 100%; border-collapse: collapse; min-width: 450px; }
+th, td { padding: 12px; border: 1px solid #444; text-align: left; }
+th { background-color: #008080; }
 
-/* --- TABLAS ADAPTABLES --- */
-.table-container {
-    width: 100%;
-    overflow-x: auto;
-    background: #333;
-    border-radius: 8px;
-    margin-top: 10px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 450px;
-}
-
-th, td {
-    padding: 12px;
-    border: 1px solid #444;
-    text-align: left;
-}
-
-th {
-    background-color: #008080;
-    color: white;
-}
-
-/* --- REPARTO (CHECKBOXES) --- */
+/* --- REPARTO --- */
 .distribucion-item {
     margin-bottom: 15px;
     border: 1px solid #444;
@@ -119,19 +79,12 @@ th {
     margin: 8px 0;
     padding: 12px;
     border-radius: 6px;
-    cursor: pointer;
-    color: #eee;
 }
 
-input[type="checkbox"] {
-    transform: scale(1.4);
-    margin-right: 12px;
-}
+input[type="checkbox"] { transform: scale(1.4); margin-right: 12px; }
 
-/* --- RESUMEN FINAL (TARJETAS) --- */
-#areaCaptura {
-    padding: 5px; /* Espacio para que la foto no salga pegada */
-}
+/* --- TARJETAS RESUMEN (EL PRECIO A LA DERECHA) --- */
+#areaCaptura { padding: 5px; }
 
 .comensal-card {
     background: #2f3029;
@@ -140,43 +93,31 @@ input[type="checkbox"] {
     margin: 12px 0;
     border-left: 8px solid #008080;
     border-radius: 8px;
-    
-    /* Añadimos estas 3 líneas mágicas */
+    position: relative; /* Base para el precio absoluto */
     display: flex;
-    flex-direction: column; /* Por defecto para los detalles */
-    position: relative;
+    flex-direction: column;
+    min-height: 50px;
 }
 
 .comensal-card strong {
     display: block;
-    margin-right: 90px; /* Deja espacio para el precio a la derecha */
+    margin-right: 100px; /* Evita solapamiento con el precio */
     text-transform: capitalize;
+    font-size: 1.1em;
 }
 
 .total-badge {
     font-weight: bold;
     color: #a6e22e;
     font-size: 1.5em;
-    
-    /* Forzamos posición a la derecha siempre */
     position: absolute;
     right: 15px;
     top: 15px;
 }
 
-/* --- RESPONSIVE PC --- */
+/* --- RESPONSIVE --- */
 @media (min-width: 600px) {
-    .input-group {
-        flex-direction: row;
-    }
-    .input-group input {
-        flex: 1;
-    }
-    .total-badge {
-        float: right;
-    }
-    .container {
-        padding: 30px;
-        margin-top: 20px;
-    }
+    .input-group { flex-direction: row; }
+    .input-group input { flex: 1; }
+    .container { padding: 30px; margin-top: 20px; }
 }
