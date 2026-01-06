@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Calculadora de Cuentas 🍽️</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -14,7 +14,7 @@
     <section>
         <h2>1. Comensales</h2>
         <div class="input-group">
-            <input type="text" id="nombreComensal" placeholder="Nombre del comensal">
+            <input type="text" id="nombreComensal" placeholder="Nombre (ej: Ana)">
             <button onclick="agregarComensal()">Añadir Persona</button>
         </div>
         <div id="listaComensales" class="chip-container"></div>
@@ -24,32 +24,36 @@
         <h2>2. Platos y Raciones</h2>
         <div class="input-group">
             <input type="text" id="nombrePlato" placeholder="Ej: Pizza">
-            <input type="number" id="precioPlato" placeholder="Precio unitario (€)" step="0.01">
-            <input type="number" id="cantidadPlato" placeholder="Cantidad" value="1">
+            <input type="number" id="precioPlato" placeholder="Precio (€)" step="0.01">
+            <input type="number" id="cantidadPlato" placeholder="Cant." value="1">
             <button onclick="agregarPlato()">Añadir</button>
         </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Plato</th>
-                    <th>Precio u.</th>
-                    <th>Cant.</th>
-                    <th>Total</th>
-                    <th>Acción</th>
-                </tr>
-            </thead>
-            <tbody id="tablaPlatosBody"></tbody>
-        </table>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Plato</th>
+                        <th>Precio</th>
+                        <th>Cant.</th>
+                        <th>Total</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaPlatosBody"></tbody>
+            </table>
+        </div>
     </section>
 
     <section>
-        <h2>3. Distribución y Totales</h2>
+        <h2>3. Reparto de Platos</h2>
+        <p style="font-size: 0.9em; color: #888; margin-bottom: 10px;">Selecciona quién ha comido cada cosa:</p>
         <div id="distribucion" class="distribucion-grid"></div>
-        <hr>
+        <hr style="border: 0; border-top: 1px solid #444; margin: 20px 0;">
         <div id="totalesFinales"></div>
     </section>
     
-    <button onclick="limpiarTodo()" class="btn-danger">Borrar todo y empezar de nuevo</button>
+    <button onclick="limpiarTodo()" class="btn-danger">Borrar todo y reiniciar</button>
 </div>
 
 <script src="script.js"></script>

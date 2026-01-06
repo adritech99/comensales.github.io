@@ -1,71 +1,124 @@
+/* Configuración General con tu estilo Dark */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 20px;
-    background-color: #272822;
+    margin: 10px;
+    background-color: #272822; /* Fondo oscuro Monokai */
     color: #ffffff;
 }
 
 .container {
     max-width: 900px;
     margin: auto;
-    background: 272822;
-    padding: 30px;
+    background: #272822; /* Corregido: añadido # */
+    padding: 15px;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
 section {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     padding-bottom: 20px;
-    border-bottom: 2px solid #008080;
+    border-bottom: 2px solid #008080; /* Tu verde azulado */
 }
 
+/* Optimización para MÓVIL (Inputs y botones) */
 .input-group {
     display: flex;
-    gap: 10px;
+    flex-direction: column; /* Apilados por defecto para pulgar */
+    gap: 12px;
     margin-bottom: 15px;
-    flex-wrap: wrap;
 }
 
 input {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    flex: 1;
+    padding: 12px;
+    background: #3e3e3e;
+    border: 1px solid #555;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px; /* Evita zoom molesto en iPhone */
 }
 
 button {
-    padding: 10px 20px;
+    padding: 14px 20px; /* Más grandes para tocar fácil */
+    font-weight: bold;
     cursor: pointer;
     background: #007bff;
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     transition: background 0.3s;
 }
 
-button:hover { background: #0056b3; }
+/* Tabla Adaptable */
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* Scroll lateral si hay muchos datos */
+    margin-top: 15px;
+    background: #333;
+    border-radius: 8px;
+}
 
-.btn-danger { background: #dc3545; width: 100%; margin-top: 20px; }
-.btn-danger:hover { background: #a71d2a; }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 450px; /* Evita que se amontone el texto */
+}
 
-.chip-container { margin-top: 15px; display: flex; gap: 8px; flex-wrap: wrap; }
+th, td {
+    padding: 12px;
+    border: 1px solid #444;
+    text-align: left;
+}
 
-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-th, td { padding: 12px; border: 1px solid #eee; text-align: left; }
-th { background-color: #008080; }
+th {
+    background-color: #008080;
+    color: white;
+}
 
+/* Tarjetas de Comensal (Borde pedido) */
 .comensal-card {
-    background: #272822;
-    border: 2px solid #008080; /* Un color violeta moderno, puedes cambiarlo por #28a745 si prefieres verde */
+    background: #2f3029; /* Un tono ligeramente distinto al fondo */
+    border: 2px solid #008080; 
     padding: 15px;
-    margin: 10px 0;
-    border-left: 5px solid #008080;
-    border-radius: 4px;
+    margin: 15px 0;
+    border-left: 8px solid #008080; /* Acentuamos el lateral */
+    border-radius: 8px;
 }
 
 .total-badge {
     font-weight: bold;
-    color: #28a745;
-    font-size: 1.3em;
+    color: #a6e22e; /* Verde brillante tipo código para que resalte el dinero */
+    font-size: 1.5em;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Responsive para Pantallas Grandes (PC) */
+@media (min-width: 600px) {
+    .input-group {
+        flex-direction: row; /* En PC se ven en línea */
+    }
+    .container {
+        margin: 30px auto;
+        padding: 30px;
+    }
+    .total-badge {
+        float: right; /* En PC el precio va a la derecha */
+        margin-top: 0;
+    }
+}
+
+/* Estilo para los Checkboxes en móvil */
+#distribucion label {
+    display: block;
+    background: #3e3e3e;
+    margin: 5px 0;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.3); /* Checkbox más grande para el dedo */
+    margin-right: 10px;
 }
